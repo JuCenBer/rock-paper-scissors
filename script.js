@@ -75,6 +75,6 @@ function game(){
     else if(playerScore < computerScore)
         console.log("Really? I didn't expect nothing and you still disapointed me...");
     else
-        console.log("DRAW... Damn, what a match!")
+        console.log("DRAW... Damn, what a match!");
     console.log("The match has came to its end");
 }
