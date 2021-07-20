@@ -13,7 +13,7 @@ function computerPlay(){
 function playerPlay(){
     let sel = (window.prompt("Rock, Paper or Scissors?: ")).toLowerCase();
     while (!((sel ==="rock") || (sel ==="paper") || (sel ==="scissors"))){
-        sel = (window.prompt("You entered literally nothing: Rock, Paper or Scissors?: ")).toLowerCase();
+        sel = (window.prompt("Dude, I didn't get the fuck you just have entered: Rock, Paper or Scissors?: ")).toLowerCase();
     }
     return sel;
 }
