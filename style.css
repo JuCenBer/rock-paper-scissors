@@ -1,0 +1,60 @@
+body{
+    background-color: black;
+    background: url("vaporwave-background.jpg");
+    background-repeat:round;
+}
+
+#buttons{
+    margin-top: 55vh;
+    height: 25vh;
+    display: flex;
+    flex-basis: 7vw;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+
+.border{
+    min-height: 13.33px;
+    min-width: 13.33px;
+    background: url("border-image-1.jpg");
+    filter: blur(1.5px);
+    background-size: 60%;
+    border-radius: 50%;
+}
+
+#rock{
+    background: url("rock.png");
+    background-size: 75%;
+    background-repeat: round;
+}
+    
+#paper{
+    background: url("paper.png");
+    background-size: 75%;
+    background-repeat: round;
+}
+
+#scissors{
+    background: url("scissors.png");
+    background-size: 75%;
+    background-repeat: round;
+}
+
+.btn{
+    margin:1vw;
+    padding: 6vw;
+    min-height: 80px;
+    min-width: 80px;
+    border-radius: 50%;
+    border: none;
+}
+
+.border:hover {
+    box-shadow: 0px -1px 20px #8A7AFF;
+    filter: blur(0);
+}
+.btn:hover{
+    filter: blur(0);
+}
