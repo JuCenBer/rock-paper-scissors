@@ -11,19 +11,22 @@ body{
 
 #scoreboard{
     color: white;
-    font-size: 5vh;
+    font-size: 2vw;
+    opacity: 0.7;
 }
 
 #sign{
     color: white;
     height: 10vh;
-    font-size: 5vh;
+    font-size: 2vw;
+    opacity: 0.7;
 }
 
 #winner{
     height: 10vh;
     color:white;
-    font-size:6vh;
+    font-size:3vw;
+    opacity: 0.7;
 }
 #buttons{
     height: 30vh;
