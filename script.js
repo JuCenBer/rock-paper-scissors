@@ -1,6 +1,7 @@
 //Script for Rock Paper Scissors game
 let playerScore=0;
 let computerScore=0;
+let roundCounter=0;
 
 function computerPlay(){
     sel = Math.floor(Math.random()*3);
@@ -10,71 +11,99 @@ function computerPlay(){
     return sel;
 }
 
-function playerPlay(){
-    let sel = (window.prompt("Rock, Paper or Scissors?: ")).toLowerCase();
-    while (!((sel ==="rock") || (sel ==="paper") || (sel ==="scissors"))){
-        sel = (window.prompt("Dude, I didn't get the fuck you just have entered: Rock, Paper or Scissors?: ")).toLowerCase();
-    }
-    return sel;
-}
-
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection){
+    computerSelection=computerPlay();
+    
+    
     if(playerSelection === computerSelection)
-        console.log("Draw");
+        sign.textContent = "Draw";
     else{
         switch(playerSelection){
             case "rock": 
                 if (computerSelection === "paper"){
-                    console.log("You lose! " + computerSelection + " beats " + playerSelection)
+                    sign.textContent = "You lose! " + computerSelection + " beats " + playerSelection;
                     computerScore++;
                 }
                 else {
-                    console.log("You win! " + playerSelection + " beats " + computerSelection)
+                    sign.textContent = "You win! " + playerSelection + " beats " + computerSelection;
                     playerScore++;
                 }
                 break;
             case "paper":
                 if (computerSelection === "scissors"){
-                    console.log("You lose! " + computerSelection + " beats " + playerSelection)
+                    sign.textContent = "You lose! " + computerSelection + " beats " + playerSelection;
                     computerScore++;
                 }
                 else {
-                    console.log("You win! " + playerSelection + " beats " + computerSelection)
+                    sign.textContent = "You win! " + playerSelection + " beats " + computerSelection;
                     playerScore++;
                 }
                 break;
             case "scissors":
                 if (computerSelection === "rock"){
-                    console.log("You lose! " + computerSelection + " beats " + playerSelection)
+                    sign.textContent = "You lose! " + computerSelection + " beats " + playerSelection;
                     computerScore++;
                 }
                 else {
-                    console.log("You win! " + playerSelection + " beats " + computerSelection)
+                    sign.textContent = "You win! " + playerSelection + " beats " + computerSelection;
                     playerScore++;
                 }
                 break;
             default:
 
                 break;
+                
     }
+    }
+    scoreboard.textContent= playerScore + " - " + computerScore;
+}
+function win(){
+    if(playerScore>computerScore){
+        winner.textContent="YOU WON!";
+    }
+    else if(playerScore<computerScore){
+        winner.textContent="YOU LOSE!";
+    }
+    else{
+        winner.textContent="TIED GAME";
     }
 }
 
 //MAIN
-function game(){
-    let i;
-    let playerSelection;
-    let computerSelection;
-    for(i=1; i<=5; i++){
-        let playerSelection = playerPlay();
-        computerSelection = computerPlay();
-        playRound(playerSelection, computerSelection);
+const rock= document.querySelector('#rock');
+const paper=document.querySelector('#paper');
+const scissors=document.querySelector('#scissors');
+const scoreboard= document.querySelector('#scoreboard');
+const sign= document.querySelector('#sign');
+const winner= document.querySelector('#winner');
+scoreboard.textContent= playerScore + " - " + computerScore;
+rock.addEventListener('click', ()=>{
+    if (roundCounter!=5){
+        roundCounter++;
+        console.log(1);
+        playRound('rock');
     }
-    if (playerScore > computerScore)
-        console.log("Nice match! You won");
-    else if(playerScore < computerScore)
-        console.log("Really? I didn't expect nothing and you still disapointed me...");
-    else
-        console.log("DRAW... Damn, what a match!");
-    console.log("The match has came to its end");
-}
+    else{
+        win();
+    }
+})
+paper.addEventListener('click', ()=>{
+    if (roundCounter!=5){
+        roundCounter++;
+        console.log(2);
+        playRound('paper');
+    }
+    else{
+        win();
+    }
+})
+scissors.addEventListener('click', ()=>{
+    if (roundCounter!=5){
+        console.log(3);
+        roundCounter++;
+        playRound('scissors');
+    }
+    else{
+        win();
+    }
+})
