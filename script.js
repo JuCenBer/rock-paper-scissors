@@ -55,11 +55,15 @@ function playRound(playerSelection){
                 
     }
     }
-    scoreboard.textContent= playerScore + " - " + computerScore;
+    scoreboard.textContent= "YOU " + playerScore + " - " + computerScore + " BOT";
+    if (roundCounter === 5){
+        win();
+    }
 }
 function win(){
     if(playerScore>computerScore){
         winner.textContent="YOU WON!";
+
     }
     else if(playerScore<computerScore){
         winner.textContent="YOU LOSE!";
@@ -67,43 +71,48 @@ function win(){
     else{
         winner.textContent="TIED GAME";
     }
+    buttons.style.visibility = 'collapse';
+    resetButton.style.visibility = 'visible';
 }
 
 //MAIN
 const rock= document.querySelector('#rock');
 const paper=document.querySelector('#paper');
 const scissors=document.querySelector('#scissors');
+const buttons=document.querySelector('#buttons');
+const resetButton=document.querySelector('#reset-button');
 const scoreboard= document.querySelector('#scoreboard');
 const sign= document.querySelector('#sign');
 const winner= document.querySelector('#winner');
-scoreboard.textContent= playerScore + " - " + computerScore;
+scoreboard.textContent= "YOU " + playerScore + " - " + computerScore + " BOT";
+
+resetButton.style.visibility= 'hidden';
+
 rock.addEventListener('click', ()=>{
     if (roundCounter!=5){
         roundCounter++;
-        console.log(1);
         playRound('rock');
-    }
-    else{
-        win();
     }
 })
 paper.addEventListener('click', ()=>{
     if (roundCounter!=5){
         roundCounter++;
-        console.log(2);
         playRound('paper');
-    }
-    else{
-        win();
     }
 })
 scissors.addEventListener('click', ()=>{
     if (roundCounter!=5){
-        console.log(3);
         roundCounter++;
         playRound('scissors');
     }
-    else{
-        win();
-    }
 })
+resetButton.addEventListener('click', ()=>{
+    playerScore=0;
+    computerScore=0;
+    roundCounter=0;
+    scoreboard.textContent= "YOU " + playerScore + " - " + computerScore + " BOT";
+    winner.textContent= " ";
+    sign.textContent= " ";
+    buttons.style.visibility= 'visible';
+    resetButton.style.visibility = 'collapse';
+} )
